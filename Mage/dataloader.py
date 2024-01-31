@@ -12,7 +12,6 @@ def load_data_from_api(*args, **kwargs):
     """
     Template for loading data from API
     """
-    #url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-11.csv.gz'
     urls = ['https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2020-10.csv.gz',
            'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2020-11.csv.gz',
            'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2020-12.csv.gz'
@@ -46,9 +45,6 @@ def load_data_from_api(*args, **kwargs):
         
     result_df = pd.concat(dfs, ignore_index=True)
 
-
-    #return pd.read_csv(url, sep=',' ,compression='gzip', parse_dates=parse_dates, dtype=taxi_dtypes)
-    #df = pd.concat(dfs, ignore_index=True)
     return result_df
     
 
