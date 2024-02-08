@@ -12,10 +12,10 @@ Pre-reqs:
 """
 
 # services = ['fhv','green','yellow']
-init_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-10.parquet'
+init_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 # switch out the bucketname
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './datacamp-keys.json'
-BUCKET = os.environ.get("datacamp-412412-bucket", "nyc-green-taxi")
+BUCKET = os.environ.get("datacamp-412412-bucket", "trip_data")
 
 
 def upload_to_gcs(bucket, object_name, local_file):
@@ -41,7 +41,7 @@ def web_to_gcs(year, service):
         month = month[-2:]
 
         # csv file_name
-        file_name = f"{service}_tripdata_{year}-{month}.parquet"
+        file_name = f"{service}_tripdata_{year}-{month}.csv.gz"
 
         # download it using requests via a pandas df
         request_url = f"{init_url}{service}/{file_name}"
@@ -50,9 +50,8 @@ def web_to_gcs(year, service):
         print(f"Local: {file_name}")
 
         # read it back into a parquet file
-        #df = pd.read_csv(file_name, compression='gzip')
-        df = pd.read_parquet(file_name) 
-        #file_name = file_name.replace('.csv', '.parquet')
+        df = pd.read_csv(file_name, compression='gzip')
+        file_name = file_name.replace('.csv.gz', '.parquet')
         df.to_parquet(file_name, engine='pyarrow')
         print(f"Parquet: {file_name}")
 
