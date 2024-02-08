@@ -1,7 +1,7 @@
 
 ## Table of Contents  
 - [Documentation](#Documentation)    
-- [Best practices](#Best-Practice)   
+- [Best practices](#Best-Practices)   
 
 ## Documentation 
  Quick hack to load files directly to GCS, without Airflow. Downloads csv files from https://nyc-tlc.s3.amazonaws.com/trip+data/ and uploads them to your Cloud Storage Account as parquet files.
