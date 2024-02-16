@@ -5,6 +5,7 @@ This is a jupter notebook illustrating dlt: To use, append and merge generators
 ## Table of Contents
 - [Prerequisites](#prerequisites)  
 - [Installation](#installation)   
+- [Docs](#docs)
 
 ## Prerequisites
 Before getting started, ensure you have the following installed on your system:
@@ -30,3 +31,6 @@ Follow these steps to set up and run the project:
    ```bash
    pip install dlt[duckdb]
    ```
+## Docs
+Dlt is open source :
+- For more info: visit https://dlthub.com/docs/intro
